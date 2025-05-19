@@ -1,0 +1,9 @@
+indent_type = "Spaces"
+indent_width = 4
+quote_style = "AutoPreferDouble"
+call_parentheses = "Always"
+collapse_simple_statement = "Always"
+column_width = 80
+
+[sort_requires]
+enabled = true
