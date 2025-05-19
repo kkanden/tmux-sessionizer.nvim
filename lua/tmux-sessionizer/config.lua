@@ -1,7 +1,3 @@
----@class tmux-sessionizer.Config
----@field directories string[] Directories to look for projects in
----@field max_depth integer Depth of the search
-
 local M = {}
 
 ---@type tmux-sessionizer.Config

@@ -2,9 +2,9 @@ local M = {}
 
 ---@param cmd string[]
 ---@param opts? table
----@return string?
+---@return string
 ---@return integer
----@return string?
+---@return string
 M.cmd = function(cmd, opts)
     opts = opts or {}
     local obj = vim.system(cmd, opts):wait()
