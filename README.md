@@ -1,13 +1,16 @@
 neovim wrapper of theprimeagen's tmux sessionizer.
 
-> [!WARNING]  
-> The plugin depends on the Snacks picker from the
-> [Snacks](https://github.com/folke/snacks.nvim) plugin.
+# Dependencies
+
+- `tmux` (duh)
+- `find` (found probably in all linux distros by default)
 
 # Usage
 
-The user is provided with a user command `:Tmux` that opens a Snacks picker with
-the list of projects inside the directories specified by the user.
+The user is provided with a user command `:Tmux` that opens a picker with the
+list of projects inside the directories specified by the user. If the
+[Snacks](https://github.com/folke/snacks.nvim) plugin is available, then a
+Snacks picker is opened, otherwise falls back to `vim.ui.select`.
 
 ## Example configuration
 
