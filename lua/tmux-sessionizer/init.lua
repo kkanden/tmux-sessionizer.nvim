@@ -93,7 +93,7 @@ local function tmux_open(project)
     local tmux_running = stdout ~= ""
 
     if not tmux_env and not tmux_running then
-        os.execute(
+        utils.execute(
             ("tmux new-session -s %s -c %s"):format(selected_name, project)
         )
         return
@@ -102,15 +102,15 @@ local function tmux_open(project)
     local _, code, _ = utils.cmd("tmux has-session -t=" .. selected_name)
 
     if code ~= 0 then
-        os.execute(
+        utils.execute(
             ("tmux new-session -ds %s -c %s"):format(selected_name, project)
         )
     end
 
     if not tmux_env then
-        os.execute(("tmux attach -t %s"):format(selected_name))
+        utils.execute(("tmux attach -t %s"):format(selected_name))
     else
-        os.execute(("tmux switch-client -t %s"):format(selected_name))
+        utils.execute(("tmux switch-client -t %s"):format(selected_name))
     end
 end
 

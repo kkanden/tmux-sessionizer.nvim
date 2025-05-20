@@ -12,6 +12,12 @@ function M.cmd(cmd, opts)
     return obj.stdout, obj.code, obj.stderr
 end
 
+function M.execute(cmd, opts)
+    cmd = vim.split(cmd, " ")
+    opts = opts or {}
+    vim.system(cmd, opts)
+end
+
 ---@param s string
 ---@return string
 function M.strip(s) return string.match(s, "^%s*(.-)%s*$") end
