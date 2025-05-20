@@ -2,7 +2,29 @@ local M = {}
 
 local ok, Snacks = pcall(require, "snacks")
 if not ok then
-    vim.notify("folke's Snacks picker is required.", vim.log.levels.ERROR)
+    vim.notify(
+        "tmux-sessionizer: folke's Snacks picker is required.",
+        vim.log.levels.ERROR,
+        { title = "tmux-sessionizer.nvim" }
+    )
+    return
+end
+
+if vim.fn.executable("find") == 0 then
+    vim.notify(
+        "tmux-sessionizer: `find` is not executable.",
+        vim.log.levels.ERROR,
+        { title = "tmux-sessionizer.nvim" }
+    )
+    return
+end
+
+if vim.fn.executable("tmux") == 0 then
+    vim.notify(
+        "tmux-sessionizer: `tmux` is not executable.",
+        vim.log.levels.ERROR,
+        { title = "tmux-sessionizer.nvim" }
+    )
     return
 end
 
