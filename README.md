@@ -17,16 +17,18 @@ Snacks picker is opened, otherwise falls back to `vim.ui.select`.
 Using `lazy.nvim`:
 
 ```lua
-return {
+{
     "kkanden/tmux-sessionizer.nvim",
     opts = {
         directories = { "~/projects", "~/.config" },
         max_depth = 2, -- how deep should the search be from the directory
     },
-    config = function(_, opts)
-        require("tmux-sessionizer").setup(opts)
+    keys = {
+        {
+            "<leader>t",
+            "<Cmd>Tmux<CR>",
+        },
+    },
 
-        vim.keymap.set("n", "<leader>t", "<Cmd>Tmux<CR>", {})
-    end,
 }
 ```
