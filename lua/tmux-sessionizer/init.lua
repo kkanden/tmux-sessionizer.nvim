@@ -135,9 +135,10 @@ function M.sessionizer()
             layout = { preset = "select" },
             format = function(item)
                 local parent, base = string.match(item.text, "(.*)/(.*)")
+                if not parent then base = item.text end
                 local ret = {}
                 ret[#ret + 1] = { item.icon, item.hl }
-                ret[#ret + 1] = { parent .. "/", "Comment" }
+                if parent then ret[#ret + 1] = { parent .. "/", "Comment" } end
                 ret[#ret + 1] = { base }
                 ret[#ret + 1] =
                     { string.rep(" ", padding - #item.text), virtual = true }
