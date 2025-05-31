@@ -50,6 +50,13 @@ local function get_projects(dirs, max_depth)
     end
 
     local projects = vim.split(stdout, "\n")
+    projects = vim.iter(projects)
+        :filter(function(x) return not string.find(x, "%.git") end)
+        :map(function(x)
+            x = string.gsub(x, os.getenv("HOME") .. "/", "", 1)
+            return x
+        end)
+        :totable()
     return utils.remove_empty(projects)
 end
 
@@ -62,9 +69,9 @@ local function create_snacks_items(entries)
         local hl = ""
         if tmux_name == tmux_current_session then
             icon = "󰝰 "
-            hl = "Green"
+            hl = "SnacksPickerGitStatusAdded"
         elseif vim.tbl_contains(tmux_sessions, tmux_name) then
-            hl = "Blue"
+            hl = "SnacksPickerDirectory"
         end
 
         if #item > items.max then items.max = #item end
