@@ -147,6 +147,10 @@ function M.sessionizer()
             end,
             confirm = function(picker, item)
                 picker:close()
+                -- add $HOME back to the entry
+                if string.sub(item.name, 1, 1) ~= "/" then
+                    item.name = vim.fs.joinpath(os.getenv("HOME"), item.name)
+                end
                 tmux_open(item.name)
             end,
         })
