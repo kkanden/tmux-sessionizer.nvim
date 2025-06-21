@@ -22,6 +22,8 @@ Using `lazy.nvim`:
     opts = {
         directories = { "~/projects", "~/.config" },
         max_depth = 2, -- how deep should the search be from the directory
+        suppress_find_errors = true, -- if `find` doesn't find a directory, the error is suppressed
+        add_to_list = { "/etc/nixos" } -- extra folders to add to picker *after* `find`
     },
     keys = {
         {
