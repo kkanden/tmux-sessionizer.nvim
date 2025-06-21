@@ -4,6 +4,7 @@ local M = {}
 local default = {
     directories = { "~/projects", "~/.config" },
     max_depth = 2,
+    suppress_find_errors = true,
 }
 
 M.default = default

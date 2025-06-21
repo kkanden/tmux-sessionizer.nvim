@@ -39,11 +39,17 @@ local function get_projects(dirs, max_depth)
     end
     command = table.concat(command, " ")
     local stdout, code, stderr = utils.cmd(command, { text = true })
-    if code ~= 0 then error(stderr, vim.log.levels.ERROR) end
+    if code ~= 0 and not config.opts.suppress_find_errors then
+        vim.notify(
+            stderr,
+            vim.log.levels.WARN,
+            { title = "tmux-sessionizer.nvim" }
+        )
+    end
 
     if not stdout or #stdout == 0 then
         vim.notify(
-            "No folders found within specified directories",
+            "tmux-sessionizer: No folders found within specified directories",
             vim.log.levels.WARN
         )
         return

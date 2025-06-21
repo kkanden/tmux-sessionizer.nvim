@@ -1,3 +1,4 @@
 ---@class tmux-sessionizer.Config
 ---@field directories string[] Directories to look for projects in
 ---@field max_depth integer Depth of the search
+---@field suppress_find_errors boolean Suppress find errors (e.g. when a directory is not found)
