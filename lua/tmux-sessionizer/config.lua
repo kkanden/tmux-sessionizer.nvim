@@ -3,6 +3,7 @@ local M = {}
 ---@type tmux-sessionizer.Config
 local default = {
     directories = { "~/projects", "~/.config" },
+    add_to_list = {},
     max_depth = 2,
     suppress_find_errors = true,
 }

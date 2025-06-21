@@ -63,6 +63,11 @@ local function get_projects(dirs, max_depth)
             return x
         end)
         :totable()
+    if not vim.tbl_isempty(config.opts.add_to_list) then
+        for _, v in pairs(config.opts.add_to_list) do
+            table.insert(projects, v)
+        end
+    end
     return utils.remove_empty(projects)
 end
 
