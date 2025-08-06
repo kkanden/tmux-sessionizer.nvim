@@ -1,3 +1,10 @@
+> [!NOTE]
+> This plugin is useless and can be replaced with the following single line in your tmux config :
+> ```tmux
+> bind C-f display-popup -E "tmux-sessionizer"
+> ```
+> where `tmux-sessionizer` fires up the script.
+
 neovim wrapper of theprimeagen's tmux sessionizer.
 
 # Dependencies
